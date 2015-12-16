@@ -1,0 +1,1 @@
+/usr/bin/g++  -fPIC  -std=c++11  -shared -Wl,-soname,nativefn.so -o nativefn.so CMakeFiles/nativefn.dir/src/main.cc.o 
