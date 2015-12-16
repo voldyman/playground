@@ -1,8 +1,16 @@
 #include <pybind11/pybind11.h>
 #include <gtkmm.h>
 #include <iostream>
+#include <memory>
 
 namespace py = pybind11;
+
+
+  namespace sigc {
+//  SIGC_FUNCTORS_HAVE_RESULT_TYPE
+//    SIGC_FUNCTORS_DEDUCE_RESULT_TYPE_WITH_DECLTYPE
+}
+
 
 class Gui {
   public:
@@ -11,6 +19,14 @@ class Gui {
 
     void show() {
         std::cout << "Showing" << std::endl;
+        char **args;
+        auto app =
+            Gtk::Application::create("org.gtkmm.examples.base");
+
+        Gtk::Window window;
+        window.set_default_size(200, 200);
+
+        app->run(window, 0, args);
     }
 };
 
