@@ -30,5 +30,8 @@ add_subdirectory(deps/poco-develop)
 add_executable(${CMAKE_PROJECT_NAME}
   src/main.cc
 )
+target_link_libraries(${CMAKE_PROJECT_NAME}
+  PocoNet
+  PocoFoundation)
 
-add_dependencies(${CMAKE_PROJECT_NAME} Poco)
+add_dependencies(${CMAKE_PROJECT_NAME} PocoNet)
