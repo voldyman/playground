@@ -4,8 +4,6 @@ project(poco-lib C CXX)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-option(POCO_STATIC ON)
-
 option(ENABLE_ZIP ON)
 option(ENABLE_PDF OFF)
 option(ENABLE_DATA ON)
@@ -24,6 +22,8 @@ option(ENABLE_DATA_SQLITE ON)
 option(ENABLE_PAGECOMPILER ON)
 option(ENABLE_APACHECONNECTOR OFF)
 option(ENABLE_PAGECOMPILER_FILE2PAGE ON)
+# build static library for poco
+option(POCO_STATIC ON)
 
 add_subdirectory(deps/poco-develop)
 
@@ -32,6 +32,7 @@ add_executable(${CMAKE_PROJECT_NAME}
 )
 target_link_libraries(${CMAKE_PROJECT_NAME}
   PocoNet
+  PocoJSON
   PocoFoundation)
 
-add_dependencies(${CMAKE_PROJECT_NAME} PocoNet)
+add_dependencies(${CMAKE_PROJECT_NAME} PocoNet PocoJSON)
