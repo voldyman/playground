@@ -22,7 +22,7 @@ parse_json(std::string str) {
 
 int main() {
     try {
-        Poco::URI uri("http://localhost:8000/all.json"); // same as http://ifconfig.me/all.json
+        Poco::URI uri("http://ifconfig.me/all.json"); // same as http://ifconfig.me/all.json
         std::string path(uri.getPathAndQuery());
 
         Poco::Net::HTTPClientSession session(uri.getHost(), uri.getPort());
